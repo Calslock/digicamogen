@@ -29,18 +29,12 @@ for i in range(size):
     if x == 0 and y == 0:
         imlist[i] = colors[r]
     else:
-        if y == 0:
+        if y == 0 or x != 0:
             for z in range(3):
                 if colors[z] == imlist[i-1]:
                     colorsprob[z]+=args.prob
-        elif x == 0:
+        if x == 0 or y != 0:
             for z in range(3):
-                if colors[z] == imlist[i-args.width]:
-                    colorsprob[z]+=args.prob
-        else:
-            for z in range(3):
-                if colors[z] == imlist[i-1]:
-                    colorsprob[z]+=args.prob
                 if colors[z] == imlist[i-args.width]:
                     colorsprob[z]+=args.prob
         for l in range(3):
