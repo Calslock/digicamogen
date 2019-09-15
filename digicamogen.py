@@ -23,11 +23,10 @@ for i in range(size):
     colorsprob = [1.0, 1.0, 1.0]
     y = i//args.width
     x = i-(y*args.width)
-    r = rnd(3, 1)
-    r = r[0]
     sum = 0.0
     if x == 0 and y == 0:
-        imlist[i] = colors[r]
+        r = rnd(3, 1)
+        imlist[i] = colors[r[0]]
     else:
         if y == 0 or x != 0:
             for z in range(3):
@@ -42,8 +41,7 @@ for i in range(size):
         for l in range(3):
                 colorsprob[l]/=sum
         clr = rnd(3, 1, p=colorsprob)
-        clr = clr[0]
-        imlist[i] = colors[clr]
+        imlist[i] = colors[clr[0]]
 
 img.putdata(imlist)
 img.save(args.filename + ".png")
